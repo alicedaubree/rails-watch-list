@@ -1,7 +1,10 @@
 <h1>Lists</h1>
 <ul>
   <% @lists.each do |list| %>
-    <li><%= link_to list.name, list_path(list.id) %></li>
+    <li><%= link_to list.name, list_path(list.id) %>
+    <%= link_to(list_path(list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}) do%>
+    <i class="fa-solid fa-trash-can"></i></li>
+    <% end %>
   <% end %>
 </ul>
 
