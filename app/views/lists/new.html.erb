@@ -1,0 +1,6 @@
+<%= simple_form_for(@list) do |f| %>
+  <%= f.input :name %>
+  <%= f.submit "Add list", class: "btn btn-primary"%>
+<% end %>
+
+<p><%= link_to "Back to menu", lists_path %></p>
