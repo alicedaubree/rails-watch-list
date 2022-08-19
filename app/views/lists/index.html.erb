@@ -1,11 +1,14 @@
-<h1>Lists</h1>
-<ul>
-  <% @lists.each do |list| %>
-    <li><%= link_to list.name, list_path(list.id) %>
-    <%= link_to(list_path(list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}) do%>
-    <i class="fa-solid fa-trash-can"></i></li>
-    <% end %>
+<%= render "layouts/banner"%>
+<div class="container p-5 bg-white">
+    <% @lists.each do |list| %>
+  <div class="card-product">
+      <img src="https://picsum.photos/200" />
+    <div class="card-product-infos">
+      <p><%= link_to list.name, list_path(list.id) %></p>
+      <%= link_to(list_path(list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}) do%>
+      <i class="fa-solid fa-trash-can"></i>
+      <% end %>
+    </div>
+  </div>
   <% end %>
-</ul>
-
-<p><%= link_to "Create a new list", new_list_path, class: "btn btn-primary" %></p>
+</div>

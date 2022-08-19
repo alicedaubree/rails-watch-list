@@ -1,0 +1,11 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://cdn.pixabay.com/photo/2017/04/29/11/35/movie-2270554_960_720.png);">
+  <div class="container">
+  <% if @list %>
+    <h1 class="animate__animated animate__bounce"><strong><%= @list.name %></strong></h1>
+  <% elsif @movies %>
+    <h1 class="animate__animated animate__bounce"><strong>All movies</strong></h1>
+  <% else %>
+    <h1 class="animate__animated animate__bounce"><strong>My lists</strong></h1>
+  <% end %>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<%= render "layouts/banner"%>
+<div class="container p-5 bg-white">
+  <div class="cards">
+  <% @movies.each do |movie| %>
+    <div class="card-movie" data-aos="flip-down">
+    <img src=<%= movie.poster_url %>>
+    <div class="card-movie-infos">
+      <div>
+      <h2><%= movie.title %> <span style="color: #edc747" class="px-2"><i class="fa-solid fa-star"></i> <%= movie.rating %> stars</span>
+      <p><%= movie.overview %></p>
+      </div>
+    </div>
+    </div>
+  <% end %>
+  </div>
+</div>

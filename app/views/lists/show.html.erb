@@ -1,16 +1,20 @@
-<h1>List : <%= @list.name %></h1>
-
-<p><strong>Bookmarks</strong></p>
-<ul>
+<%= render "layouts/banner"%>
+<div class="container p-5 bg-white">
+  <div class="cards">
   <% @list.bookmarks.each do |bookmark| %>
-    <li><strong><%= bookmark.movie.title %></strong> - <%= bookmark.movie.rating %>: <%= bookmark.comment %><br>
-    <%= bookmark.movie.overview %>
-    <%= link_to(list_bookmark_path(@list, bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}) do%>
-    <i class="fa-solid fa-trash-can"></i></li>
+    <div class="card-movie" data-aos="flip-down">
+    <img src=<%= bookmark.movie.poster_url %>>
+    <div class="card-movie-infos">
+      <div>
+      <h2><%= bookmark.movie.title %> <span style="color: #edc747" class="px-2"><i class="fa-solid fa-star"></i> <%= bookmark.movie.rating %> stars</span>
+      <%= link_to(list_bookmark_path(@list, bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}) do%>
+        <i class="fa-solid fa-trash-can" style="color:black"></i>
+      <% end %></h2>
+      <p><%= bookmark.movie.overview %></p>
+      <h2><i class="fa-solid fa-quote-left mt-2"></i> <%= bookmark.comment %> <i class="fa-solid fa-quote-right"></i></h2>
+      </div>
+    </div>
+    </div>
   <% end %>
-  <% end %>
-</ul>
-
-<br>
-<p><%= link_to "Create a bookmark", new_list_bookmark_path(@list.id), class: "btn btn-primary" %></p>
-<p><%= link_to "Back to menu", lists_path, class: "btn btn-primary" %></p>
+  </div>
+</div>
